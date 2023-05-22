@@ -16,8 +16,9 @@ steps:
   inputs:
     Contents: '*.json'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: 'Bandit_scan_result'
     publishLocation: 'Container'
