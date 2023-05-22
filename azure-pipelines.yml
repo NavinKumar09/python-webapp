@@ -11,8 +11,9 @@ steps:
 - script: |
     bandit -r ./ -f json --output banditResult.json
     cat banditResult.json
-  displayName: 'Run a multi-line script'
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '*.json'
+    artifact: 'artifact'
     publishLocation: 'pipeline'
