@@ -8,5 +8,8 @@ steps:
 - script: pip install bandit
   displayName: 'Bandit Installation'
 
-- script: bandit -r ./
+- script: bandit -r ./ --format json --output banditResult.json
   displayName: 'Bandit Scan'
+
+- script: cat banditResult.json
+  displayName: 'View Scan Result'
