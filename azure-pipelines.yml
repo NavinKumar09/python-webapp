@@ -8,8 +8,10 @@ steps:
 - script: pip install bandit
   displayName: 'Bandit Installation'
 
+- script: bandit -r ./ -f json --output banditResult.json
+- script: cat banditResult.json
 
-- script: |
-    bandit -r ./ -f json --output banditResult.json
-    cat banditResult.json
-  displayName: 'Run a multi-line script'
+# - script: |
+#     bandit -r ./ -f json --output banditResult.json
+#     cat banditResult.json
+#   displayName: 'Run a multi-line script'
