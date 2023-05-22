@@ -8,5 +8,14 @@ steps:
 - script: pip install bandit
   displayName: 'Bandit Installation'
 
+- script: ls
+  displayName: 'Bandit Scan'
+
+- script: cd ..
+  displayName: 'Bandit Scan'
+
+- script: ls
+  displayName: 'Bandit Scan'
+
 - script: bandit -r /python-webapp
   displayName: 'Bandit Scan'
