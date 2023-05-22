@@ -14,5 +14,5 @@ steps:
   displayName: 'Run a multi-line script'
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: 'job/s/*.json'
+    targetPath: '*.json'
     publishLocation: 'pipeline'
