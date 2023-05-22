@@ -1,0 +1,12 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: pip install bandit
+  displayName: 'Bandit Installation'
+
+- script: bandit -r /python-webapp
+  displayName: 'Bandit Scan'
