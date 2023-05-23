@@ -8,10 +8,16 @@ steps:
 - script: pip install bandit
   displayName: 'Bandit Installation'
 
+- script: pip install safety
+  displayName: 'Safety Installation'
+
 - script: |
     bandit -r ./ -f json --output banditResult.json
     cat banditResult.json
 
+- script: |
+    safety check -r ./ >> safetyCheckReports.txt
+    cat safetyCheckReports.txt
 - task: CopyFiles@2
   inputs:
     Contents: '*.json'
