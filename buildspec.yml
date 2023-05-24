@@ -12,6 +12,7 @@ phases:
   post_build:
     commands:
       - echo post build
+      - cat banditResult.json
   
 artifacts:
   files:
