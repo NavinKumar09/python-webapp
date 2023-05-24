@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo Installing Bandit
+      - pip install bandit
+  build:
+    commands:
+      - echo Scanning Repo
+      - bandit -r ./ -f json --output banditResult.json
+      - cat banditResult.json
+  post_build:
+    commands:
+      - echo post build
+  
+# artifacts:
+#   files:
+#   - '*.txt'
+#   name: ${CODEBUILD_BUILD_ID}-$(TZ=$TZ date +'%Y-%m-%d_%H-%M-%S')
