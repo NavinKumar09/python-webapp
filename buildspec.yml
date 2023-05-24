@@ -7,13 +7,13 @@ phases:
   build:
     commands:
       - echo Scanning Repo
-      - bandit -r ./
+      - bandit -r ./ -f json --output banditResult.json
       - cat banditResult.json
   post_build:
     commands:
       - echo post build
   
-# artifacts:
-#   files:
-#   - '*.txt'
-#   name: ${CODEBUILD_BUILD_ID}-$(TZ=$TZ date +'%Y-%m-%d_%H-%M-%S')
+artifacts:
+  files:
+  - '*.json'
+  name: ${CODEBUILD_BUILD_ID}-$(TZ=$TZ date +'%Y-%m-%d_%H-%M-%S')
