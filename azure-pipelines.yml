@@ -10,7 +10,6 @@ steps:
 
 - script: |
     safety check --key $(safety_api_key) | tee safetyCheckReports.txt
-    cat safetyCheckReports.txt
 
 # - task: CopyFiles@2
 #   inputs:
