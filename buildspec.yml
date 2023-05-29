@@ -1,19 +1,21 @@
 version: 0.2
+env:
+  parameter-store:
+     SAFETY_API_KEY: "SAFETY_API_KEY"
 phases:
   install:
     commands:
-      - echo Installing Bandit
-      - pip install bandit
+      - echo Installing Safety
+      - pip install safety
   build:
     commands:
       - echo Scanning Repo
-      - bandit -r ./ -f json --output banditResult.json
+      - safety check --key "$SAFETY_API_KEY"
   post_build:
     commands:
       - echo Scanned Results!!!
-      - cat banditResult.json
   
-artifacts:
-  files:
-  - '*.json'
-  name: ${CODEBUILD_BUILD_ID}-$(TZ=$TZ date +'%Y-%m-%d_%H-%M-%S')
+# artifacts:
+#   files:
+#   - '*.json'
+#   name: ${CODEBUILD_BUILD_ID}-$(TZ=$TZ date +'%Y-%m-%d_%H-%M-%S')
