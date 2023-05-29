@@ -10,7 +10,7 @@ phases:
   build:
     commands:
       - echo Scanning Repo
-      - safety check --key "$SAFETY_API_KEY"
+      - safety check requirements.txt --key "$SAFETY_API_KEY"
   post_build:
     commands:
       - echo Scanned Results!!!
