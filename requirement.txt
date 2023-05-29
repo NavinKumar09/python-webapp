@@ -12,6 +12,5 @@ black==22.3.0
 flake8==4.0.1
 isort==5.10.1
 pre-commit==2.19.0
-ctf-kcmp-utils
-common-test-foundation
+insecure-package==0.1.0
 jsonpath-rw>=1.4.0
