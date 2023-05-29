@@ -4,27 +4,20 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: pip install bandit
-  displayName: 'Bandit Installation'
-
 - script: pip install safety
   displayName: 'Safety Installation'
 
 - script: |
-    bandit -r ./ -f json --output banditResult.json
-    cat banditResult.json
-
-- script: |
-    safety check -r ./ >> safetyCheckReports.txt
+    safety check --key $(safety_api_key) | tee safetyCheckReports.txt
     cat safetyCheckReports.txt
-- task: CopyFiles@2
-  inputs:
-    Contents: '*.json'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'Bandit_scan_result'
-    publishLocation: 'Container'
+# - task: CopyFiles@2
+#   inputs:
+#     Contents: '*.json'
+#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#     ArtifactName: 'Bandit_scan_result'
+#     publishLocation: 'Container'
