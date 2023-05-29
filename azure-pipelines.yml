@@ -11,13 +11,13 @@ steps:
 - script: |
     safety check --key $(safety_api_key) | tee safetyCheckReports.txt
 
-# - task: CopyFiles@2
-#   inputs:
-#     Contents: '*.json'
-#     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: CopyFiles@2
+  inputs:
+    Contents: '*.txt'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#     ArtifactName: 'Bandit_scan_result'
-#     publishLocation: 'Container'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Safety_scan_result'
+    publishLocation: 'Container'
