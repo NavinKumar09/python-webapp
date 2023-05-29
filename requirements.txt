@@ -1,0 +1,15 @@
+mkdocs
+mkdocs-material
+mkdocs-git-revision-date-localized-plugin
+mkdocs-git-authors-plugin
+mkdocs-git-committers-plugin
+mdx_truly_sane_lists
+mkdocs-section-index
+mkdocs-glightbox
+markdown-include
+mkdocs-include-markdown-plugin
+black==22.3.0
+flake8==4.0.1
+isort==5.10.1
+pre-commit==2.19.0
+jsonpath-rw>=1.4.0
